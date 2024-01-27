@@ -13,7 +13,6 @@ public class Player : MonoBehaviour
     {
         originalScale= new Vector3(1,1,1);
         anim = gameObject.GetComponent<Animator>();
-        //anim.Play("standing");
     }
 
     // Update is called once per frame
