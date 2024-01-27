@@ -7,12 +7,15 @@ public class Player : MonoBehaviour
 
     public float moveSpeed = 0.5f; // Adjust the speed as needed
      private Animator anim;
+     bool pfork;
     private Vector3 originalScale; 
     // Start is called before the first frame update
     void Start()
     {
         originalScale= new Vector3(1,1,1);
         anim = gameObject.GetComponent<Animator>();
+        pfork = false;
+        
     }
 
     // Update is called once per frame
@@ -37,6 +40,19 @@ public class Player : MonoBehaviour
         }
         else{
             anim.SetBool("walk", false);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("triggered");
+        //Check to see if the tag on the collider is equal to Enemy
+        if (other.tag == "Pfork")
+        {
+            pfork = true;
+            anim.SetBool("with_pitchfork", true);
+            Debug.Log("Got pfork");
+            Destroy (GameObject.FindWithTag("Pfork"));
         }
     }
 }
