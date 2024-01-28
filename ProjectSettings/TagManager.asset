@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Pfork
   - Exit
+  - Buffalo
   layers:
   - Default
   - TransparentFX
