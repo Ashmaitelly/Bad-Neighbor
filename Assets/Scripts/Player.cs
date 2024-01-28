@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public float moveSpeed = 0.5f; // Adjust the speed as needed
      private Animator anim;
      bool pfork;
+     bool canMove;
     private Vector3 originalScale; 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,6 @@ public class Player : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         Vector3 moveDirection = new Vector3(horizontalInput, 0, 0);
-        transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
         transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
 
         // Flip the player character horizontally if moving left
